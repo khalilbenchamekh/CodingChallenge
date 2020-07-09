@@ -1,0 +1,10 @@
+
+.divEx1{
+  padding: 100px;
+}
+.table-index-no_margin,.table-index{
+  z-index:999;
+}
+.table-index{
+  margin: 0 0 90px 0;
+}
