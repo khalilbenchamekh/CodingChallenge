@@ -76,7 +76,12 @@ class Products extends Component {
                                         <li>description :{product.description}</li>
                                         <li>price : {product.price}</li>
                                         {
-                                            product.categories && <li>categorie name:{product.categories.name}</li>
+                                            product.categories &&
+                                            product.categories.map((categories) =>
+                                                <ul>
+                                                    <li> Sub categorie name:{categories.name}</li>
+                                                </ul>
+                                            )
                                         }
 
                                     </div>

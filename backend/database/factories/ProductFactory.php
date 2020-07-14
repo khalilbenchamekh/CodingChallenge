@@ -18,9 +18,9 @@ $factory->define(Product::class, function (Faker $faker) {
         'name' => $name,
         'description' => Str::random(10),
         'price' => $faker->randomFloat(3, 0, 1000),
-        'category_id' => function () {
-            return factory(Category::class)->states('child')->make()->parent_id;
-        },
+//        'category_id' => function () {
+//            return factory(Category::class)->states('child')->make()->parent_id;
+//        },
         'image' => $faker->image($path, 640, 480, null, false),
     ];
 });

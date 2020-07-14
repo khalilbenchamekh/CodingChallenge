@@ -9,7 +9,9 @@
 namespace App\Repositories\Interfaces;
 
 
-class CategorieInterfaces
+interface CategorieInterfaces extends CrudInterfaces
 {
+    public function find(array $id_table);
+
 
 }

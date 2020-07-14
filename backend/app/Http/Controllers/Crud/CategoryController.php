@@ -6,49 +6,48 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Crud\CategoryRequest;
 use App\Http\Requests\Crud\listingProductsWithAbilityRequest;
 use App\Models\Category;
-use App\Repositories\Repositories\Repository;
+use App\Services\ServiceCategories;
 use Illuminate\Http\Request;
 
 
 class CategoryController extends Controller
 {
 
-    protected $model;
+    protected $serviceCategories;
 
-    public function __construct(Category $category)
+    public function __construct(ServiceCategories $serviceCategories)
     {
-        $this->model = new Repository($category);
+        $this->serviceCategories = $serviceCategories;
     }
 
     public function index()
     {
-        $categories = $this->model->all();
+        $categories = $this->serviceCategories->all();
         return response(['data' => $categories], 200);
     }
 
 
-
     public function store(CategoryRequest $request)
     {
-        $category = $this->model->create($request->only($this->model->getModel()->fillable));
+        $category = $this->serviceCategories->create($request->only($this->serviceCategories->getModel()->fillable));
         return response(['data' => $category], 201);
     }
 
     public function show($id)
     {
-        $category = $this->model->show($id);
+        $category = $this->serviceCategories->show($id);
         return response(['data', $category], 200);
     }
 
     public function update(CategoryRequest $request, $id)
     {
-        $category = $this->model->update($request->only($this->model->getModel()->fillable), $id);
+        $category = $this->serviceCategories->update($request->only($this->serviceCategories->getModel()->fillable), $id);
         return response(['data' => $category], 200);
     }
 
     public function destroy($id)
     {
-        $this->model->delete($id);
+        $this->serviceCategories->delete($id);
         return response(['data' => null], 204);
     }
 }

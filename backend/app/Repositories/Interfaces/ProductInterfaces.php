@@ -8,8 +8,14 @@
 
 namespace App\Repositories\Interfaces;
 
+use App\Models\Product;
+use Illuminate\Database\Eloquent\Model;
 
-class ProductInterfaces
+interface ProductInterfaces extends CrudInterfaces
 {
+    public function listingProductsWithAbility($category_id = null);
+
+    public function attachCategoriesToProduct($categories,Product $products);
+
 
 }
