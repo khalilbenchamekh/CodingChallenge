@@ -126,8 +126,7 @@ class ProductRepository implements ProductInterfaces
     }
 
 
-    public
-    function attachCategoriesToProduct($categories, Product $products)
+    public function attachCategoriesToProduct($categories, Product $products)
     {
         $products->categories()->attach($categories);
     }

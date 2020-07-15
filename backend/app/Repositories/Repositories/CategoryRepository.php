@@ -10,9 +10,9 @@ namespace App\Repositories\Repositories;
 
 
 use App\Models\Category;
-use App\Repositories\Interfaces\CategorieInterfaces;
+use App\Repositories\Interfaces\CategoryInterfaces;
 
-class CartegorieRepository implements CategorieInterfaces
+class CategoryRepository implements CategoryInterfaces
 {
     protected $category;
 

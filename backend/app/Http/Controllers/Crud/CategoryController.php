@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Crud\CategoryRequest;
 use App\Http\Requests\Crud\listingProductsWithAbilityRequest;
 use App\Models\Category;
-use App\Services\ServiceCategories;
+use App\Services\CategoryService;
 use Illuminate\Http\Request;
 
 
@@ -15,7 +15,7 @@ class CategoryController extends Controller
 
     protected $serviceCategories;
 
-    public function __construct(ServiceCategories $serviceCategories)
+    public function __construct(CategoryService $serviceCategories)
     {
         $this->serviceCategories = $serviceCategories;
     }

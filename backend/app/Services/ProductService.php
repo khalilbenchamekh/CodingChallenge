@@ -11,17 +11,17 @@ namespace App\Services;
 
 use App\Http\Requests\Crud\ProductRequest;
 use App\Models\Product;
-use App\Repositories\Repositories\CartegorieRepository;
+use App\Repositories\Repositories\CategoryRepository;
 use App\Repositories\Repositories\ProductRepository;
 
-class ServiceProducts
+class ProductService
 {
     protected $productRepository;
-    protected $cartegoryRepository;
+    protected $categoryRepository;
 
-    public function __construct(ProductRepository $productRepository, CartegorieRepository $cartegoryRepository)
+    public function __construct(ProductRepository $productRepository, CategoryRepository $categoryRepository)
     {
-        $this->cartegoryRepository = $cartegoryRepository;
+        $this->categoryRepository = $categoryRepository;
         $this->productRepository = $productRepository;
     }
 
@@ -31,25 +31,23 @@ class ServiceProducts
     }
 
     // create a new record in the database
-    public function create(ProductRequest $request)
+    public function create($data, $category_id)
     {
-        $data = $request->only($this->productRepository->getModel()->fillable);
         $products = $this->productRepository->create($data);
-        $this->attachHelper($request, $products);
+        $this->attachHelper($category_id, $products);
         return $products;
     }
 
     /**
      * Attach a model to the parent.
-     * @param  ProductRequest $request
+     * @param $category_id
      * @param Product $products
      * @return void
      */
-    private function attachHelper(ProductRequest $request, Product $products)
+    private function attachHelper($category_id, Product $products)
     {
-        if ($request->has('category_id')) {
-            $category_id = $request->input('category_id');
-            $categories = $this->cartegoryRepository->find($category_id);
+        if (!empty($category_id)) {
+            $categories = $this->categoryRepository->find($category_id);
             $this->productRepository->attachCategoriesToProduct($categories, $products);
         }
     }

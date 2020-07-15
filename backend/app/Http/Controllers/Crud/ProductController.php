@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Crud;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Crud\listingProductsWithAbilityRequest;
 use App\Http\Requests\Crud\ProductRequest;
-use App\Services\ServiceProducts;
+use App\Services\ProductService;
 
 class ProductController extends Controller
 {
     protected $serviceProducts;
 
-    public function __construct(ServiceProducts $serviceProducts)
+    public function __construct(ProductService $serviceProducts)
     {
         $this->serviceProducts = $serviceProducts;
     }
@@ -24,7 +24,9 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
-        $product = $this->serviceProducts->create($request);
+        $data = $request->only($this->serviceProducts->getModel()->fillable);
+        $category_id = $request->input('category_id');
+        $product = $this->serviceProducts->create($data, $category_id);
 
         return response(['data' => $product], 201);
 

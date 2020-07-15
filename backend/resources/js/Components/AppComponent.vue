@@ -63,9 +63,13 @@
 
             },
             getProducts: function (body) {
-                Api.addMissionsService(body)
+                let obj = {
+                    category_id: body
+                };
+                obj = body ? obj : body;
+                Api.addMissionsService(obj)
                     .then(({data}) => {
-                        this.categories = data.data
+                        this.products = data.data
                     })
                     .catch(error => {
                         console.error(error);

@@ -1246,10 +1246,14 @@ module.exports = function buildURL(url, params, paramsSerializer) {
         getProducts: function getProducts(body) {
             var _this2 = this;
 
-            __WEBPACK_IMPORTED_MODULE_0__api_CodingChallenge__["a" /* default */].addMissionsService(body).then(function (_ref2) {
+            var obj = {
+                category_id: body
+            };
+            obj = body ? obj : body;
+            __WEBPACK_IMPORTED_MODULE_0__api_CodingChallenge__["a" /* default */].addMissionsService(obj).then(function (_ref2) {
                 var data = _ref2.data;
 
-                _this2.categories = data.data;
+                _this2.products = data.data;
             }).catch(function (error) {
                 console.error(error);
             });

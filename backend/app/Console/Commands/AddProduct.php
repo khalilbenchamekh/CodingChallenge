@@ -3,10 +3,15 @@
 namespace App\Console\Commands;
 
 use App\Models\Product;
+use App\Services\ProductService;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Validator;
 
 class AddProduct extends Command
 {
+    protected $serviceProducts;
+
+
     /**
      * The name and signature of the console command.
      *
@@ -24,44 +29,78 @@ class AddProduct extends Command
     /**
      * Create a new command instance.
      *
-     * @return void
+     * @param ProductService $serviceProducts
      */
-    public function __construct()
+    public function __construct(ProductService $serviceProducts)
+
     {
         parent::__construct();
+        $this->serviceProducts = $serviceProducts;
+
     }
 
+
     /**
-     * Execute the console command.
+     * Validates the user input
      *
-     * @return int
+     * @param array $attributes
+     * @return array
+     * @throws \Exception
      */
+    protected function validateInput(array $attributes)
+    {
+
+        $validator = Validator::make($attributes, [
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:255'],
+            'price' => ['regex:/^[0-9]+(\.[0-9][0-9]?)?$/'],
+            'category_id' => 'required|array',
+            'category_id.*' => 'integer',
+            'image' => ['required', 'string', 'max:255'],
+        ]);
+        $array = [];
+        if ($validator->fails()) {
+            $array = $validator->errors();
+        }
+        return $array;
+    }
+
     public function handle()
     {
-        $name = $this->ask('What is Product  name?');
+
+        $name = $this->ask('What is Product  name ?');
         $description = $this->ask('What is Product  description ?');
         $price = $this->ask('What is Product  price ?');
         $image = $this->ask('What is Product  image url ?');
         try {
-            $product = Product::create([
-                'name' => $name,
-                'description' => $description,
-                'name' => $name,
-                'price' => $price,
-                'image' => $image]);
+
+
+            $category_id = null;
             if ($this->confirm('Do you wish to attach categories to product?')) {
                 $id = $this->ask('What is category id ?');
                 if (is_numeric($id)) {
-                    $categories = [$id];
-                    $product->categories()->attach($categories);
+                    $category_id = [$id];
                 }
             }
-            $this->info('success');
+            $data = [
+                'name' => $name,
+                'description' => $description,
+                'price' => $price,
+                'image' => $image,
+                'category_id' => $category_id,
+            ];
+            $array = $this->validateInput($data);
+            if ($array == []) {
+                $product = $this->serviceProducts->create($data, $category_id);
+                $this->info('success' . $product);
+            } else {
+                $this->error('Something went wrong!' . $array);
+            }
+
         } catch (\Exception $e) {
             $this->error('Something went wrong!' . $e);
 
         }
-
 
     }
 }
