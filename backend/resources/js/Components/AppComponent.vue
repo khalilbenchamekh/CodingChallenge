@@ -9,17 +9,15 @@
                         <div class="form-group">
                             <label>Select Category:</label>
                             <select class='form-control' v-model='category' @change='getProducts(category)'>
-                                <option value='0'>Select Category</option>
                                 <option v-for='data in categories' :value='data.id'>{{ data.name }}</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label>Select State:</label>
                             <ul v-for='data in products' v-model='product'>
-                                <li>name :{data.name}</li>
-                                <li>description :{data.description}</li>
-                                <li>price : {data.price}</li>
+                                <li>name :{{data.name}}</li>
+                                <li>description :{{data.description}}</li>
+                                <li>price : {{data.price}}</li>
                                 <li>
                                     <ul
                                         v-if="data.categories"
@@ -57,7 +55,7 @@
             getCategories: function () {
                 Api.getMissionsService()
                     .then(({data}) => {
-                        this.categories = data
+                        this.categories = data.data
                     })
                     .catch(error => {
                         console.error(error);
@@ -67,7 +65,7 @@
             getProducts: function (body) {
                 Api.addMissionsService(body)
                     .then(({data}) => {
-                        this.categories = data
+                        this.categories = data.data
                     })
                     .catch(error => {
                         console.error(error);
