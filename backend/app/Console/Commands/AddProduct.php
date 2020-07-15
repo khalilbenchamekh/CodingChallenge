@@ -43,7 +43,7 @@ class AddProduct extends Command
         $price = $this->ask('What is Product  price ?');
         $image = $this->ask('What is Product  image url ?');
         try {
-            $prod = Product::create([
+            $product = Product::create([
                 'name' => $name,
                 'description' => $description,
                 'name' => $name,
@@ -53,7 +53,7 @@ class AddProduct extends Command
                 $id = $this->ask('What is category id ?');
                 if (is_numeric($id)) {
                     $categories = [$id];
-                    $prod->categories()->attach($categories);
+                    $product->categories()->attach($categories);
                 }
             }
             $this->info('success');

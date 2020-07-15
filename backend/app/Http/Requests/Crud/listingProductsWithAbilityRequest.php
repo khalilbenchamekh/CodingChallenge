@@ -21,7 +21,7 @@ class listingProductsWithAbilityRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_id' => ['exists:categories,id'],
+            'category_id' => ['integer'],
         ];
     }
 }

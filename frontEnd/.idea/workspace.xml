@@ -2,32 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca9e201c-67de-41e6-bc41-9634deb622df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../backend/app/Repositories/Interfaces/CategorieInterfaces.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/app/Repositories/Interfaces/CrudInterfaces.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/app/Repositories/Interfaces/ProductInterfaces.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/app/Repositories/Repositories/CartegorieRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/app/Repositories/Repositories/ProductRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/app/Services/ServiceCategories.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/app/Services/ServiceProducts.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/resources/js/Components/App.vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/resources/js/config/axios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/app/Http/Controllers/Crud/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/app/Http/Controllers/Crud/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/app/Console/Commands/AddProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/app/Console/Commands/AddProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/app/Heleper/helper.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/app/Http/Controllers/Crud/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/app/Http/Controllers/Crud/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/app/Http/Requests/Crud/ProductRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/app/Http/Requests/Crud/ProductRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/app/Http/Requests/Crud/listingProductsWithAbilityRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/app/Http/Requests/Crud/listingProductsWithAbilityRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/app/Repositories/Interfaces/ListingProductInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/app/Repositories/Interfaces/RepositoryInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/app/Repositories/Repositories/Repository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/app/Repositories/Repositories/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/app/Repositories/Repositories/ProductRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/database/factories/ProductFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/database/factories/ProductFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/database/migrations/2020_07_08_130131_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/database/migrations/2020_07_08_130131_create_products_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/database/seeds/CategorySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/database/seeds/CategorySeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/database/seeds/ProductSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/database/seeds/ProductSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/tests/Unit/ProductCreationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/tests/Unit/ProductCreationTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Crud/products/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Crud/products/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +64,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Crud/products/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
+            <state relative-caret-position="111">
               <caret line="81" column="87" selection-start-line="81" selection-start-column="87" selection-end-line="81" selection-end-column="87" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -131,10 +122,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-15" />
-    <option name="y" value="-15" />
-    <option name="width" value="1340" />
-    <option name="height" value="1605" />
+    <option name="x" value="-20" />
+    <option name="y" value="-20" />
+    <option name="width" value="1675" />
+    <option name="height" value="2008" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -224,7 +215,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../backend" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -255,22 +246,22 @@
       <workItem from="1594293737637" duration="5474000" />
       <workItem from="1594380690766" duration="130000" />
       <workItem from="1594720144121" duration="731000" />
+      <workItem from="1594731855715" duration="15000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12523000" />
+    <option name="totallyTimeSpent" value="12538000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.25183374" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.28053692" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32871974" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.41911766" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
@@ -559,7 +550,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Crud/products/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
+        <state relative-caret-position="111">
           <caret line="81" column="87" selection-start-line="81" selection-start-column="87" selection-end-line="81" selection-end-column="87" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />

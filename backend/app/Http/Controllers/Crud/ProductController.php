@@ -32,9 +32,8 @@ class ProductController extends Controller
 
     public function listingProductsWithAbility(listingProductsWithAbilityRequest $request)
     {
-        $category_id = $request->input('category_id');
-        $prod = $this->serviceProducts->listingProductsWithAbility($category_id);
-        return response(['data' => $prod], 200);
+        $product = $this->serviceProducts->listingProductsWithAbility($request->only('category_id'));
+        return response(['data' => $product], 200);
     }
 
     public function show($id)

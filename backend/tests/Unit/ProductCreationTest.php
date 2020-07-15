@@ -9,9 +9,9 @@ class ProductCreationTest extends TestCase
 {
     public function it_creates_at_least_hundred_fake_ProductsCreation()
     {
-        $prod = [];
-        $prod[] = factory(Product::class, mt_rand(100, 1000))->create();
-        $this->assertTrue(count($prod) >= 100);
+        $product = [];
+        $product[] = factory(Product::class, mt_rand(100, 1000))->create();
+        $this->assertTrue(count($product) >= 100);
     }
 
     /**

@@ -66,12 +66,7 @@ class ProductRepository implements ProductInterfaces
         return $this;
     }
 
-    /**
-     * Begin querying a model with eager loading.
-     *
-     * @param  array|string $relations
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
+    // Eager load database relationships
     public function with($relations)
     {
         return $this->product->with($relations);
@@ -79,30 +74,57 @@ class ProductRepository implements ProductInterfaces
 
     public function listingProductsWithAbility($category_id = null)
     {
-
-        $query = $this->with([
-                'categories' => function ($query) use ($category_id) {
-                    return $query->where('category_id', '=', $category_id);
-                }
-            ]
-        )->has('categories')->orderBy('price', 'asc');
+        $query = $this->queryToMakeListOfProductWithCategoryId($category_id);
         return $query->get();
     }
 
-//    private function category_id_is_not_null($query)
-//    {
-//        foreach ($query->categories as $category) {
-//            if (isset($category->pivot)) {
-//                $pivot = $category->pivot;
-//                if (isset($pivot->category_id)) {
-//                    $category_id =
-//
-//                }
-//
-//            }
-//
-//        }
-//    }
+    /**
+     * withOut condition to the query.
+     * @return \Illuminate\Database\Eloquent\Builder $query
+     *
+     */
+
+    private function queryToMakeListOfProduct()
+    {
+        $query = $this->product::with('categories')
+            ->has('categories')
+            ->
+            orderBy('price', 'desc');
+        return $query;
+    }
+
+    /**
+     * withOut condition to the query.
+     * @param $query
+     * @param $category_id
+     * @return \Illuminate\Database\Eloquent\Builder $query
+     */
+
+    private function categoryIdExistInPivotTable($query, $category_id)
+    {
+        $query
+            ->
+            whereHas('categories', function ($query) use ($category_id) {
+                return $query->where('category_id', $category_id);
+            });
+        return $query;
+    }
+
+    /**
+     * withOut condition to the query.
+     * @param $category_id
+     * @return \Illuminate\Database\Eloquent\Builder $query
+     */
+
+    private function queryToMakeListOfProductWithCategoryId($category_id)
+    {
+        $query = $this->queryToMakeListOfProduct();
+        if ($category_id != null) {
+            $query = $this->categoryIdExistInPivotTable($query, $category_id);
+        }
+        return $query;
+    }
+
 
     public
     function attachCategoriesToProduct($categories, Product $products)
