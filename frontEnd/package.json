@@ -24,7 +24,7 @@
     "jest-puppeteer": "3.4.0",
     "mui-datatables": "^2.13.3",
     "nodemon": "1.18.4",
-    "puppeteer": "1.8.0",
+    "puppeteer": "1.20.0",
     "react-redux": "5.0.7",
     "redux": "4.0.0",
     "redux-saga": "0.16.0",
